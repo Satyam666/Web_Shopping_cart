@@ -1,0 +1,317 @@
+
+
+
+
+
+
+<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+        <!--jQuery library-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <!--Latest compiled and minified JavaScript-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Navbar in Bootstrap</title>
+        <style>
+
+
+.grids {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+  
+}
+.containers {
+    position: relative;
+    margin-top: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+
+.grids>article {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+.grids>article img {
+  max-width: 100%;
+}
+
+.grids .description {
+  padding: 20px;
+}
+.grids .titles {
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.grids button {
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    width: 80px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: #2874f0;
+}
+.grids button a {
+    color: white;
+    text-decoration: none;
+}
+ *{
+  padding:0px;
+  margin:0px;
+  box-sizing:border-box;
+  
+  text-align: center;
+}
+
+nav .navbar-header a{
+  font-family:'Raleway',sans-serif;
+  letter-spacing:1px;
+}
+nav .navbar-header a,ul li a{
+  color:#fff;
+  
+}
+nav .navbar-header button .fa{
+  color:#fff;
+  border:1px solid #fff;
+  border-radius:5px;
+  padding:4px 10px;
+  font-size:1.5em;
+  position:absolute;
+  top:-0.5px;
+  left:-30px;
+}
+
+.glyphicon-search{
+  color:#2874f0;
+}
+
+}
+form{
+  position:relative;
+  top:10px;
+}
+
+.menu{
+  border-bottom:1px solid rgba(0,0,0,0.1);
+}
+section{
+  position:relative;
+  top:4.5em;
+}
+section .container-fluid .thumbnail .caption .buttons{
+  margin:1px;
+}
+
+section .desc h5 .glyphicon{
+  color:#5cb85c;
+}
+section .desc .breadcrumb{
+  padding-left:0;
+}
+
+section .desc button:hover{
+  background-color:#fff;
+  border:1px solid #2874f0;
+  color:#2874f0;
+}
+
+footer{
+  position:relative;
+  top:15em;
+  color:#565656;
+  width:100%;
+  margin-bottom:10px;
+}
+footer .container .col-sm-4 ul li a{
+  color:#565656;
+}
+footer .container .col-sm-4 ul li a:hover{
+  text-decoration:none;
+}
+
+footer .container-fluid span{
+  font-size:30px;
+  position:absolute;
+  top:25%;
+  left:12%;
+}
+footer .container-fluid h3{
+  font-size:20px;
+  margin-left:30px;
+}
+
+footer .contact button{
+  background-color:#565656;
+  color:#fff;
+}
+@media (min-width:863px){
+  footer .container-fluid span{
+  font-size:40px;
+  position:absolute;
+  top:10%;
+  
+}
+footer .container-fluid h3{
+ font-size:1.9rem; 
+  
+  width:70%;
+  position:relative;
+  left:15%;
+  top:-10px;
+} 
+}
+        </style>
+    </head>
+
+<body>
+          <nav class="navbar navbar-dark navbar-fixed-top" style="background-color:#2874f0;">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                      <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="/shopping">Lifestyle Store</a>
+                </div>
+                
+                <div class="collapse navbar-collapse" id="myNavbar">
+                  <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+      </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart<span class="badge"></span></a></li>
+                        <li><a href=""><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+                      <li><a href="/loggedOut"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+  
+  
+  
+<div id="app" class="containers">
+  <div class="grids">
+    {{#each ardata}}
+    <article>
+      <img src="{{this.imageURL}}" style="width:450px ; height:350px ;"  alt="">
+      <div class="titles">
+        <h3>{{this.name}}</h3>
+      </div>
+      <div class="description">
+        {{this.slug}} 
+      </div>
+      <button><a href="/Items/{{this.id}}">Add +</a> </button>
+    </article>
+    {{/each}}
+  </div>
+</div>
+ 
+     
+         
+           
+  <!-- FOOTER -->
+   
+   <footer class="page-footer container-fluid col-sm-12">
+    <hr>
+    <div class="container">
+      <div class="col-sm-4">
+        <h4>Help</h4>
+        <ul class="list-unstyled quick-links">
+          <li><a href="">Payments</a></li>
+          
+          <li><a href="">Shipping</a></li>
+        
+          <li><a href="">Cancellations & Return</a></li>
+          
+          <li><a href="">FAQ</a></li>
+        
+        </ul>
+      </div>
+      
+      <div class="col-sm-4">
+        <h4>Lifestyle Store</h4>
+        <ul class="list-unstyled quick-links">
+          <li><a href="">Contact Us</a></li>
+          
+          <li><a href="">About Us</a></li>
+          <li><a href="">Careers</a></li>
+          <li><a href="">Stories</a></li>
+          <li><a href="">Sell With Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-sm-4">
+        <h4>MISC</h4>
+        <ul class="list-unstyled quick-links">
+          <li><a href="">Online Shopping</a></li>
+          <li><a href="">Gift Card</a></li>
+          <li><a href=""></a></li>Sitemap
+        </ul>
+      </div>
+      
+    </div>
+    
+     <div class="container-fluid col-lg-10 col-lg-offset-1">
+      <div class="row">
+        <hr>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-map-marker"></span>
+          <h3 class="text-center">&nbsp;TRACK YOUR ORDER</h3>
+        </div>
+        
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-refresh"></span>
+          <h3 class="text-center">&nbsp;&nbsp;FREE & EASY RETURNS</h3>
+              
+            </div>
+        
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-remove-circle"></span>
+          <h3 class="text-center">ONLINE CANCELLATIONS</h3>
+        </div>
+          </div>
+        </div>
+        <br>
+      <!--/div>
+    </div-->
+     <div class="container-fluid" style="position:relative;top:6em;margin-bottom:20px;">
+       
+       <div class="col-sm-5">
+         
+         <h5 style="font-size:0.95em;">Policies: <a href=""  style="text-decoration:none;"> Return Policy </a>|<a href=""  style="text-decoration:none;"> Terms of use </a>|<a href=""  style="text-decoration:none;"> Security </a>|<a href=""  style="text-decoration:none;"> Privacy </a>|<a href=""  style="text-decoration:none;"> Infringement</a></h5>
+         
+       </div>
+       
+       <div class="col-sm-3">
+         <h5 style="font-size:0.95em;">&copy; LIFESTYLE STORE</h5>
+       </div>
+       
+       <div class="col-sm-4 row contact">
+         <h5 class="col-sm-5" style="font-size:0.95em;">Keep in touch</h5>
+         <div class="col-sm-7">
+           <button class="btn btn-default" style="border-radius:50%;width:40px;height:40px;"><i class="fa fa-facebook-f"></i></button>
+           
+            <button class="btn btn-default" style="border-radius:50%;width:40px;height:40px;"><i class="fa fa-twitter"></i></button>
+           
+            <button class="btn btn-default" style="border-radius:50%;width:40px;height:40px;"><i class="fa fa-google"></i></button>
+           
+            <button class="btn btn-default" style="border-radius:50%;width:40px;height:40px;"><i class="fa fa-youtube"></i></button>
+         </div>
+       </div>
+       
+     </div>
+         <hr>
+      </footer>
+   
+</body>
